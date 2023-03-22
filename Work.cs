@@ -1,26 +1,27 @@
 using System;
 using System.IO;
+
 class Program
 {
-    public static string dirPath() 
+    public static string dirPath()  // Return path to program directory
     {
       return Directory.GetCurrentDirectory();
     }
   
-    public static string testDirPath()
+    public static string testDirPath()  // Return path to "Testdir" directory
     {
       return dirPath() + @"/Testdir";
     }
   
-    public static void CreateDirIfNone(string neededDir)
+    public static void CreateDirIfNone(string NeededDir)  // Creates directory if it doesnt exist
     {
-      if (!Directory.Exists(neededDir))
+      if (!Directory.Exists(NeededDir))
       {
-          Directory.CreateDirectory(neededDir);
+          Directory.CreateDirectory(NeededDir);
       }
     }
   
-    public static void Create()
+    public static void CreateNeededDirs()  // Create the main directories
     {
         CreateDirIfNone(testDirPath());
         CreateDirIfNone(testDirPath() + @"/Game");
@@ -28,12 +29,13 @@ class Program
         CreateDirIfNone(testDirPath() + @"/Publisher");
     }
   
-    public static void CreateGame(string Name)
+    public static void CreateGame(string Name)  // Creates file in .../Game
     {
-      string Path = testDirPath() + @"/Game" + Name + ".txt";
+      string Path = testDirPath() + @"/Game/" + Name + ".txt";
       FileStream fs=File.Create(Path);
       fs.Close();
-      using(StreamWriter writetext = new StreamWriter(Path)){  
+      using(StreamWriter writetext = new StreamWriter(Path))
+      {  
         writetext.WriteLine("First");
         writetext.WriteLine("Second");
         writetext.WriteLine("Third");
@@ -45,7 +47,7 @@ class Program
     {
       Console.WriteLine(dirPath());
       Console.WriteLine(testDirPath());
-      Create();
+      CreateNeededDirs();
       CreateGame("Mort the Chicken");
     }
 }
