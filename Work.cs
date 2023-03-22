@@ -2,35 +2,35 @@ using System;
 using System.IO;
 class Program
 {
-    static public void Create()
+    public static string dirPath() 
     {
-        string dir = @"/home/runner/Work/Testdir";
-        if (!Directory.Exists(dir))
-        {
-            Directory.CreateDirectory(dir);
-        }
-        //
-        dir = @"/home/runner/Work/Testdir/1.Game";
-        if (!Directory.Exists(dir))
-        {
-            Directory.CreateDirectory(dir);
-        }
-        //
-        dir = @"/home/runner/Work/Testdir/2.Developer";
-        if (!Directory.Exists(dir))
-        {
-            Directory.CreateDirectory(dir);
-        }
-        //
-        dir = @"/home/runner/Work/Testdir/3.Publisher";
-        if (!Directory.Exists(dir))
-        {
-            Directory.CreateDirectory(dir);
-        }
+      return Directory.GetCurrentDirectory();
     }
-    static public void CreateGame(string Name)
+  
+    public static string testDirPath()
     {
-      string Path=@"/home/runner/Work/Testdir/1.Game/"+Name+".txt";
+      return dirPath() + @"/Testdir";
+    }
+  
+    public static void CreateDirIfNone(string neededDir)
+    {
+      if (!Directory.Exists(neededDir))
+      {
+          Directory.CreateDirectory(neededDir);
+      }
+    }
+  
+    public static void Create()
+    {
+        CreateDirIfNone(testDirPath());
+        CreateDirIfNone(testDirPath() + @"/Game");
+        CreateDirIfNone(testDirPath() + @"/Developer");
+        CreateDirIfNone(testDirPath() + @"/Publisher");
+    }
+  
+    public static void CreateGame(string Name)
+    {
+      string Path = testDirPath() + @"/Game" + Name + ".txt";
       FileStream fs=File.Create(Path);
       fs.Close();
       using(StreamWriter writetext = new StreamWriter(Path)){  
@@ -43,7 +43,9 @@ class Program
 
     public static void Main(string[] args)
     {
-        Create();
-        CreateGame("Mort the Chicken");
+      Console.WriteLine(dirPath());
+      Console.WriteLine(testDirPath());
+      Create();
+      CreateGame("Mort the Chicken");
     }
 }
