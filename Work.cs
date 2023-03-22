@@ -36,18 +36,56 @@ class Program
       fs.Close();
       using(StreamWriter writetext = new StreamWriter(Path))
       {  
-        writetext.WriteLine("First");
-        writetext.WriteLine("Second");
-        writetext.WriteLine("Third");
-        writetext.WriteLine("Fourth");
+        string text = Console.ReadLine();
+        writetext.WriteLine("Year of release: " + text);
+        text = Console.ReadLine();
+        writetext.WriteLine("Developer of the game: " + text);
+        text = Console.ReadLine();
+        writetext.WriteLine("Publisher of the game: " + text);
+        text = Console.ReadLine();
+        writetext.WriteLine("Price of the game: " + text);
       }
     }
 
+      public static void CreateDeveloper(string Name)
+    {
+        string Path = testDirPath() + @"/Developer/" + Name + ".txt";
+        FileStream fs = File.Create(Path);
+        fs.Close();
+        using (StreamWriter writetext = new StreamWriter(Path))
+        {
+            string text = Console.ReadLine();
+            writetext.WriteLine("Year when company was established: " +text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Amount of employees: " + text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Average salary: " + text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Head of company: " + text);
+        }
+    }
+    public static void CreatePublisher(string Name)
+    {
+        string Path = testDirPath() + @"/Publisher/" + Name + ".txt";
+        FileStream fs = File.Create(Path);
+        fs.Close();
+        using (StreamWriter writetext = new StreamWriter(Path))
+        {
+            string text = Console.ReadLine();
+            writetext.WriteLine("Year when company was established: " + text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Amount of employees: " + text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Average salary: " + text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Smth:" + text);
+        }
+    }
     public static void Main(string[] args)
     {
-      Console.WriteLine(dirPath());
-      Console.WriteLine(testDirPath());
+      Console.WriteLine(dirPath());  // Debug
+      Console.WriteLine(testDirPath());  // Debug
       CreateNeededDirs();
-      CreateGame("Mort the Chicken");
+      //CreateGame("Mort the Chicken");
     }
 }
