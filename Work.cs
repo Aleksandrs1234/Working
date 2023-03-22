@@ -31,6 +31,9 @@ class Program
     static public void CreateGame(string Name)
     {
         string Path = @"/home/runner/Work/Testdir/1.Game/" + Name + ".txt";
+        if (Directory.Exists(Path)){
+          Console.WriteLine("Yas");
+        }
         FileStream fs = File.Create(Path);
         fs.Close();
         using (StreamWriter writetext = new StreamWriter(Path))
@@ -62,6 +65,23 @@ class Program
             writetext.WriteLine("Head of company:" + text);
         }
     }
+    static public void CreatePublisher(string Name)
+    {
+        string Path = @"/home/runner/Work/Testdir/3.Publisher/" + Name + ".txt";
+        FileStream fs = File.Create(Path);
+        fs.Close();
+        using (StreamWriter writetext = new StreamWriter(Path))
+        {
+            string text = Console.ReadLine();
+            writetext.WriteLine("Year when company was established: "+text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Amount of employees:" +text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Average salary:" +text);
+            text=Console.ReadLine();
+            writetext.WriteLine("Smth:" + text);
+        }
+    }
 
     public static void Main(string[] args)
     {
@@ -69,6 +89,7 @@ class Program
         //CreateGame("Mort the Chicken");
         Console.WriteLine("---------");
         //CreateGame("Cristian game about stealing burger at 4 am in cube dimension");
-        CreateDeveloper("Cristian game company");
+        //CreateDeveloper("Cristian game company");
+        CreatePublisher("Test");
     }
 }
