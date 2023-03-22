@@ -31,8 +31,9 @@ class Program
     static public void CreateGame(string Name)
     {
         string Path = @"/home/runner/Work/Testdir/1.Game/" + Name + ".txt";
-        if (Directory.Exists(Path)){
-          Console.WriteLine("Yas");
+        if (File.Exists(Path)){
+          Console.WriteLine("File already exist");
+          return;
         }
         FileStream fs = File.Create(Path);
         fs.Close();
@@ -51,6 +52,10 @@ class Program
     static public void CreateDeveloper(string Name)
     {
         string Path = @"/home/runner/Work/Testdir/2.Developer/" + Name + ".txt";
+        if (File.Exists(Path)){
+          Console.WriteLine("File already exist");
+          return;
+        }
         FileStream fs = File.Create(Path);
         fs.Close();
         using (StreamWriter writetext = new StreamWriter(Path))
@@ -68,6 +73,10 @@ class Program
     static public void CreatePublisher(string Name)
     {
         string Path = @"/home/runner/Work/Testdir/3.Publisher/" + Name + ".txt";
+        if (File.Exists(Path)){
+          Console.WriteLine("File already exists");
+          return;
+        }
         FileStream fs = File.Create(Path);
         fs.Close();
         using (StreamWriter writetext = new StreamWriter(Path))
@@ -86,10 +95,10 @@ class Program
     public static void Main(string[] args)
     {
         Create();
-        //CreateGame("Mort the Chicken");
+        CreateGame("Mort the Chicken");
         Console.WriteLine("---------");
-        //CreateGame("Cristian game about stealing burger at 4 am in cube dimension");
-        //CreateDeveloper("Cristian game company");
+        CreateGame("Cristian game about stealing burger at 4 am in cube dimension");
+        CreateDeveloper("Cristian game company");
         CreatePublisher("Test");
     }
 }
