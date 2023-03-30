@@ -133,7 +133,7 @@ class Program
 
             Console.Write("Write Location of headquarters: ");
             text=Console.ReadLine();
-            writetext.WriteLine("Location of headquartres: " + text);
+            writetext.WriteLine("Location of headquarters: " + text);
         }
     }
     public static void DeletePublisher(string Name){
