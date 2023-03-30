@@ -108,6 +108,28 @@ class Program
           Console.WriteLine(readtext.ReadLine().Substring(19));
         }
     }
+
+    public static void ReadDeveloper(string DeveloperPath)  // Prints data of given Developer
+    {
+      using (StreamReader readtext = new StreamReader(DeveloperPath))
+        {
+          Console.WriteLine(readtext.ReadLine().Substring(34));
+          Console.WriteLine(readtext.ReadLine().Substring(21));
+          Console.WriteLine(readtext.ReadLine().Substring(16));
+          Console.WriteLine(readtext.ReadLine().Substring(17));
+        }
+    }
+
+    public static void ReadPublisher(string PublisherPath)  // Prints data of given Publisher
+    {
+      using (StreamReader readtext = new StreamReader(PublisherPath))
+        {
+          Console.WriteLine(readtext.ReadLine().Substring(34));
+          Console.WriteLine(readtext.ReadLine().Substring(21));
+          Console.WriteLine(readtext.ReadLine().Substring(17));
+          Console.WriteLine(readtext.ReadLine().Substring(5));
+        }
+    }
     
     public static void Main(string[] args)
     {
@@ -115,6 +137,6 @@ class Program
         Console.WriteLine(DataDirPath());  // Debug
         CreateNeededDirs();
         //CreateGame("Mort the Chicken");
-        ReadGame(DataDirPath() + @"/Game/Mort the Chicken.txt");
+        //ReadGame(DataDirPath() + @"/Game/Mort the Chicken.txt");
     }
 }
