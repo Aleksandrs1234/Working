@@ -217,31 +217,31 @@ class Program
           Console.WriteLine();
           Console.Write("Input command: ");
           option=Console.ReadLine();
-          if (option=="CreateGame" || option=="Creategame"){
+          if (option=="CreateGame" || option=="Creategame") {
             Console.WriteLine("What do you call a file");
             option=Console.ReadLine();
             CreateGame(option);
-          }else if (option=="CreateDeveloper" || option=="Createdeveloper"){
+          } else if (option=="CreateDeveloper" || option=="Createdeveloper") {
             Console.WriteLine("What do you call a file");
             option=Console.ReadLine();
             CreateDeveloper(option);
-          }else if (option=="CreatePublisher" || option=="Createpublisher"){
+          } else if (option=="CreatePublisher" || option=="Createpublisher") {
             Console.WriteLine("What do you call a file");
             option=Console.ReadLine();
             CreatePublisher(option);
-          }else if (option=="DeleteGame" || option=="Deletegame"){
+          } else if (option=="DeleteGame" || option=="Deletegame"){
             Console.WriteLine("What file you want to delete");
             option=Console.ReadLine();
             DeleteGame(option);
-          }else if (option=="DeleteDeveloper" || option=="Deletedeveloper"){
+          } else if (option=="DeleteDeveloper" || option=="Deletedeveloper") {
             Console.WriteLine("What file you want to delete");
             option=Console.ReadLine();
             DeleteDeveloper(option);
-          }else if (option=="DeletePublisher" || option=="Deletepublisher"){
+          } else if (option=="DeletePublisher" || option=="Deletepublisher") {
             Console.WriteLine("What file you want to delete");
             option=Console.ReadLine();
             DeletePublisher(option);
-          }else if (option=="Exit" ||option=="exit"){
+          } else if (option=="Exit" ||option=="exit") {
             cycle=false;
             Console.WriteLine("bye bye");
           }
