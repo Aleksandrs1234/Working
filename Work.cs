@@ -8,7 +8,7 @@ class Program
         return Directory.GetCurrentDirectory();
     }
   
-    public static string testDirPath()  // Return path to "Testdir" directory
+    public static string DataDirPath()  // Return path to "Data" directory
     {
         return dirPath() + @"/Data";
     }
@@ -23,15 +23,15 @@ class Program
   
     public static void CreateNeededDirs()  // Create the main directories
     {
-        CreateDirIfNone(testDirPath());
-        CreateDirIfNone(testDirPath() + @"/Game");
-        CreateDirIfNone(testDirPath() + @"/Developer");
-        CreateDirIfNone(testDirPath() + @"/Publisher");
+        CreateDirIfNone(DataDirPath());
+        CreateDirIfNone(DataDirPath() + @"/Game");
+        CreateDirIfNone(DataDirPath() + @"/Developer");
+        CreateDirIfNone(DataDirPath() + @"/Publisher");
     }
   
     public static void CreateGame(string Name)  // Creates file in .../Game
     {
-        string Path = testDirPath() + @"/Game/" + Name + ".txt";
+        string Path = DataDirPath() + @"/Game/" + Name + ".txt";
         if (File.Exists(Path))
         {
           Console.WriteLine("File already exist");
@@ -52,9 +52,9 @@ class Program
         }
     }
 
-    public static void CreateDeveloper(string Name)
+    public static void CreateDeveloper(string Name)  // Creates file in .../Developer
     {
-        string Path = testDirPath() + @"/Developer/" + Name + ".txt";
+        string Path = DataDirPath() + @"/Developer/" + Name + ".txt";
         if (File.Exists(Path))
         {
             Console.WriteLine("File already exist");
@@ -75,9 +75,9 @@ class Program
         }
     }
 
-    public static void CreatePublisher(string Name)
+    public static void CreatePublisher(string Name)  // Creates file in .../Publisher
     {
-        string Path = testDirPath() + @"/Publisher/" + Name + ".txt";
+        string Path = DataDirPath() + @"/Publisher/" + Name + ".txt";
         FileStream fs = File.Create(Path);
         if (File.Exists(Path))
         {
@@ -97,12 +97,24 @@ class Program
             writetext.WriteLine("Smth:" + text);
         }
     }
+
+    public static void ReadGame(string GamePath)  // Prints data of given game
+    {
+      using (StreamReader readtext = new StreamReader(GamePath))
+        {
+          Console.WriteLine(readtext.ReadLine().Substring(17));
+          Console.WriteLine(readtext.ReadLine().Substring(23));
+          Console.WriteLine(readtext.ReadLine().Substring(23));
+          Console.WriteLine(readtext.ReadLine().Substring(19));
+        }
+    }
     
     public static void Main(string[] args)
     {
         Console.WriteLine(dirPath());  // Debug
-        Console.WriteLine(testDirPath());  // Debug
+        Console.WriteLine(DataDirPath());  // Debug
         CreateNeededDirs();
         //CreateGame("Mort the Chicken");
+        ReadGame(DataDirPath() + @"/Game/Mort the Chicken.txt");
     }
 }
