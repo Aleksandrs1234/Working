@@ -55,7 +55,9 @@ class Program
             writetext.WriteLine("Price of the game: " + text);
         }
     }
-    public static void DeleteGame(string Name){
+    
+    public static void DeleteGame(string Name)  // Deletes file in .../Game
+    {
       string Path = testDirPath() + @"/Game/" + Name + ".txt";
         if (File.Exists(Path))
         {
@@ -94,7 +96,7 @@ class Program
         }
     }
 
-    public static void DeleteDeveloper(string Name){
+    public static void DeleteDeveloper(string Name){ // Deletes file in .../Developer
       string Path = testDirPath() + @"/Developer/" + Name + ".txt";
         if (File.Exists(Path))
         {
@@ -105,7 +107,8 @@ class Program
           Console.WriteLine("There no such file");
         }
     }
-    public static void CreatePublisher(string Name)
+
+    public static void CreatePublisher(string Name)  // Creates file in .../Publisher
     {
         string Path = testDirPath() + @"/Publisher/" + Name + ".txt";
         if (File.Exists(Path))
@@ -136,7 +139,9 @@ class Program
             writetext.WriteLine("Location of headquarters: " + text);
         }
     }
-    public static void DeletePublisher(string Name){
+
+    public static void DeletePublisher(string Name)  // Deletes file in .../Publisher
+    {  
       string Path = testDirPath() + @"/Publisher/" + Name + ".txt";
         if (File.Exists(Path))
         {
