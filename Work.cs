@@ -10,7 +10,7 @@ class Program
   
     public static string testDirPath()  // Return path to "Testdir" directory
     {
-        return dirPath() + @"/Testdir";
+        return dirPath() + @"/Data";
     }
   
     public static void CreateDirIfNone(string NeededDir)  // Creates directory if it doesnt exist
@@ -74,6 +74,7 @@ class Program
             writetext.WriteLine("Head of company: " + text);
         }
     }
+
     public static void CreatePublisher(string Name)
     {
         string Path = testDirPath() + @"/Publisher/" + Name + ".txt";
@@ -96,6 +97,7 @@ class Program
             writetext.WriteLine("Smth:" + text);
         }
     }
+    
     public static void Main(string[] args)
     {
         Console.WriteLine(dirPath());  // Debug
