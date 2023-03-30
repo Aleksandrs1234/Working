@@ -117,18 +117,23 @@ class Program
         fs.Close();
         using (StreamWriter writetext = new StreamWriter(Path))
         {
-            Console.Write("Write Year when company was established:");
-            string text = Console.ReadLine();
+            string text;
+
+            Console.Write("Write Year when company was established: ");
+            text=Console.ReadLine();
             writetext.WriteLine("Year when company was established: " + text);
-            Console.Write("Write amount of employees:");
+
+            Console.Write("Write amount of employees: ");
             text=Console.ReadLine();
             writetext.WriteLine("Amount of employees: " + text);
-            Console.Write("Write average salary:");
+
+            Console.Write("Write average salary: ");
             text=Console.ReadLine();
             writetext.WriteLine("Average salary: " + text);
-            Console.Write("Write Location of headquarters:");
+
+            Console.Write("Write Location of headquarters: ");
             text=Console.ReadLine();
-            writetext.WriteLine("Location of headquartres:" + text);
+            writetext.WriteLine("Location of headquartres: " + text);
         }
     }
     public static void DeletePublisher(string Name){
@@ -136,7 +141,7 @@ class Program
         if (File.Exists(Path))
         {
             File.Delete(Path);
-            Console.WriteLine("File "+Name+".txt deleted");
+            Console.WriteLine("File " + Name + ".txt deleted");
             return;
         }else{
           Console.WriteLine("There no such file");
@@ -171,8 +176,8 @@ class Program
         {
           Console.WriteLine(readtext.ReadLine().Substring(34));
           Console.WriteLine(readtext.ReadLine().Substring(21));
-          Console.WriteLine(readtext.ReadLine().Substring(17));
-          Console.WriteLine(readtext.ReadLine().Substring(5));
+          Console.WriteLine(readtext.ReadLine().Substring(16));
+          Console.WriteLine(readtext.ReadLine().Substring(26));
         }
     }
     
