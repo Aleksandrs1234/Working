@@ -8,9 +8,9 @@ class Program
         return Directory.GetCurrentDirectory();
     }
   
-    public static string DataDirPath()  // Return path to "Testdir" directory
+    public static string DataDirPath()  // Return path to "Data" directory
     {
-        return dirPath() + @"/Testdir";
+        return dirPath() + @"/Data";
     }
   
     public static void CreateDirIfNone(string NeededDir)  // Creates directory if it doesnt exist
