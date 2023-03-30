@@ -41,22 +41,29 @@ class Program
         fs.Close();
         using(StreamWriter writetext = new StreamWriter(Path))
         {  
-            Console.Write("Write year of release:");
-            string text = Console.ReadLine();
+            string text;
+
+            Console.Write("Write year of release: ");
+            text = Console.ReadLine();
             writetext.WriteLine("Year of release: " + text);
-            Console.Write("Write Developer of the game:");
+
+            Console.Write("Write Developer of the game: ");
             text = Console.ReadLine();
             writetext.WriteLine("Developer of the game: " + text);
-            Console.Write("Write publisher of the game:");
+
+            Console.Write("Write publisher of the game: ");
             text = Console.ReadLine();
             writetext.WriteLine("Publisher of the game: " + text);
-            Console.Write("Write Price of the game:");
+
+            Console.Write("Write Price of the game: ");
             text = Console.ReadLine();
             writetext.WriteLine("Price of the game: " + text);
         }
     }
-    public static void DeleteGame(string Name){
-      string Path = testDirPath() + @"/Game/" + Name + ".txt";
+    
+    public static void DeleteGame(string Name)  // Deletes file in .../Game
+    {
+      string Path = DataDirPath() + @"/Game/" + Name + ".txt";
         if (File.Exists(Path))
         {
             File.Delete(Path);
@@ -79,23 +86,29 @@ class Program
         fs.Close();
         using (StreamWriter writetext = new StreamWriter(Path))
         {
-            Console.Write("Write year when company was established:");
-            string text = Console.ReadLine();
+            string text;
+
+            Console.Write("Write year when company was established: ");
+            text=Console.ReadLine();
             writetext.WriteLine("Year when company was established: " +text);
-            Console.Write("Write amount of employees:");
+
+            Console.Write("Write amount of employees: ");
             text=Console.ReadLine();
             writetext.WriteLine("Amount of employees: " + text);
-            Console.Write("Write average salary:");
+
+            Console.Write("Write average salary: ");
             text=Console.ReadLine();
             writetext.WriteLine("Average salary: " + text);
-            Console.Write("Write head of company:");
+
+            Console.Write("Write head of company: ");
             text=Console.ReadLine();
             writetext.WriteLine("Head of company: " + text);
         }
     }
 
-    public static void DeleteDeveloper(string Name){
-      string Path = testDirPath() + @"/Developer/" + Name + ".txt";
+    public static void DeleteDeveloper(string Name)  // Deletes file in .../Developer
+    { 
+      string Path = DataDirPath() + @"/Developer/" + Name + ".txt";
         if (File.Exists(Path))
         {
             File.Delete(Path);
@@ -105,9 +118,10 @@ class Program
           Console.WriteLine("There no such file");
         }
     }
-    public static void CreatePublisher(string Name)
+
+    public static void CreatePublisher(string Name)  // Creates file in .../Publisher
     {
-        string Path = testDirPath() + @"/Publisher/" + Name + ".txt";
+        string Path = DataDirPath() + @"/Publisher/" + Name + ".txt";
         if (File.Exists(Path))
         {
             Console.WriteLine("File already exist");
@@ -117,26 +131,33 @@ class Program
         fs.Close();
         using (StreamWriter writetext = new StreamWriter(Path))
         {
-            Console.Write("Write Year when company was established:");
-            string text = Console.ReadLine();
+            string text;
+
+            Console.Write("Write Year when company was established: ");
+            text=Console.ReadLine();
             writetext.WriteLine("Year when company was established: " + text);
-            Console.Write("Write amount of employees:");
+
+            Console.Write("Write amount of employees: ");
             text=Console.ReadLine();
             writetext.WriteLine("Amount of employees: " + text);
-            Console.Write("Write average salary:");
+
+            Console.Write("Write average salary: ");
             text=Console.ReadLine();
             writetext.WriteLine("Average salary: " + text);
-            Console.Write("Write Location of headquarters:");
+
+            Console.Write("Write Location of headquarters: ");
             text=Console.ReadLine();
-            writetext.WriteLine("Location of headquartres:" + text);
+            writetext.WriteLine("Location of headquarters: " + text);
         }
     }
-    public static void DeletePublisher(string Name){
-      string Path = testDirPath() + @"/Publisher/" + Name + ".txt";
+
+    public static void DeletePublisher(string Name)  // Deletes file in .../Publisher
+    {  
+      string Path = DataDirPath() + @"/Publisher/" + Name + ".txt";
         if (File.Exists(Path))
         {
             File.Delete(Path);
-            Console.WriteLine("File "+Name+".txt deleted");
+            Console.WriteLine("File " + Name + ".txt deleted");
             return;
         }else{
           Console.WriteLine("There no such file");
@@ -158,7 +179,7 @@ class Program
     {
       using (StreamReader readtext = new StreamReader(DeveloperPath))
         {
-          Console.WriteLine(readtext.ReadLine().Substring(34));
+          Console.WriteLine(readtext.ReadLine().Substring(35));
           Console.WriteLine(readtext.ReadLine().Substring(21));
           Console.WriteLine(readtext.ReadLine().Substring(16));
           Console.WriteLine(readtext.ReadLine().Substring(17));
@@ -169,10 +190,10 @@ class Program
     {
       using (StreamReader readtext = new StreamReader(PublisherPath))
         {
-          Console.WriteLine(readtext.ReadLine().Substring(34));
+          Console.WriteLine(readtext.ReadLine().Substring(35));
           Console.WriteLine(readtext.ReadLine().Substring(21));
-          Console.WriteLine(readtext.ReadLine().Substring(17));
-          Console.WriteLine(readtext.ReadLine().Substring(5));
+          Console.WriteLine(readtext.ReadLine().Substring(16));
+          Console.WriteLine(readtext.ReadLine().Substring(26));
         }
     }
     
@@ -181,11 +202,17 @@ class Program
         Console.WriteLine(dirPath());  // Debug
         Console.WriteLine(DataDirPath());  // Debug
         CreateNeededDirs();
+        /*
+        ReadGame(DataDirPath() + @"/Game/meincretf.txt");
+        ReadDeveloper(DataDirPath() + @"/Developer/moženg.txt");
+        ReadPublisher(DataDirPath() + @"/Publisher/EA Sports, it's in the GAME.txt");
+      
         bool cycle=true;
         string option;
         while(cycle){
           Console.WriteLine("Write what you want to do");
           Console.WriteLine();
         }
+        */
     }
 }
